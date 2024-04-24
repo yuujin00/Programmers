@@ -18,6 +18,6 @@ bool solution(string s)
     }
     
     if(!S.empty()) return false;
-
+    
     return answer;
 }
