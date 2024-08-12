@@ -2,10 +2,13 @@
 
 def solution(elements):
     answer = set()
-    elements = elements * 2 #[7,9,1,1,4,7,9,1,1,4]
     
-    for i in range(len(elements)//2):
-        for j in range(len(elements)//2):
-            answer.add(sum(elements[j:j+i]))
+    for i in range(len(elements)):
+        sum=0
+        for j in range(i, i+len(elements)):
+            idx = j % len(elements);
+            sum += elements[idx];
+            answer.add(sum);
             
+    #print(answer)
     return len(answer)
