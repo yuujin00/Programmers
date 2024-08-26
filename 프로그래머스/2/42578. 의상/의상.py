@@ -1,15 +1,17 @@
-# 의상
-
 def solution(clothes):
-    closet = {} 
-    for name, kind in clothes:
-        if kind in closet.keys():
-            closet[kind] += [name]
-        else:
-            closet[kind] = [name]
-    #print(closet)
     answer = 1
-    for key, value in closet.items():
-        answer *= (len(value) + 1)
+    
+    clothe_cnt={}
+    
+    for (i,j) in clothes :
+        if j in clothe_cnt :
+            clothe_cnt[j] += 1
+        else :
+            clothe_cnt[j] = 1
+    
+    print(clothe_cnt)
+    
+    for i in clothe_cnt :
+        answer *= (clothe_cnt[i]+1)
         
-    return answer -1
+    return answer-1
