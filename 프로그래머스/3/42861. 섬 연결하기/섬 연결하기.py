@@ -3,8 +3,11 @@
 
 def solution(n, costs):
     answer = 0
+    
+    # 비용순으로 정렬
     costs.sort(key=lambda x:x[2])
     V=set([costs[0][0]])
+    #print(costs,V)
     
     while len(V) != n :
         for E in costs:
@@ -14,5 +17,6 @@ def solution(n, costs):
                 V.add(E[0])
                 V.add(E[1])
                 answer+=E[2]
+                #print(V)
                 break  
     return answer
