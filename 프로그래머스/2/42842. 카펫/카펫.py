@@ -1,12 +1,13 @@
 # 카펫
 
 import math
+
 def solution(brown, yellow):
     answer = []
-    by= brown + yellow
+    by= brown + yellow 
     
-    for h in range (3, int(math.sqrt(by))+1) : 
-        w= int(by/h);
+    for h in range (3, int(by**0.5)+1) :
+        w=int(by/h)
+        #print(w,h)
         if((w-2)*(h-2)==yellow):
-            return [w,h]
-    
+            return[w,h]
