@@ -1,23 +1,14 @@
 # 모음사전
 
-answer = 0
-cnt= -1
+from itertools import product
+
 def solution(word):
-    words='AEIOU'
+    words=[]
     
-    def dfs(tmp):
-        global answer,cnt
-        if len(tmp) <= 5 :
-            cnt+=1
-            if tmp==word :
-                answer=cnt
-                #print(tmp,answer)
-                return answer
-        else : 
-            return 
-        
-        for i in range(5):
-            dfs(tmp+words[i])
-        
-    dfs('')    
-    return answer
+    for i in range(1,6):
+        for j in product("AEIOU",repeat=i):
+            words.append(''.join(list(j)))
+    
+    words.sort()
+    #print(words)
+    return words.index(word)+1
