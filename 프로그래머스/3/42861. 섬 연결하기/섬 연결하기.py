@@ -1,22 +1,18 @@
-# 섬 연결하기 
-# G=(V,E)
-
 def solution(n, costs):
     answer = 0
     
-    # 비용순으로 정렬
-    costs.sort(key=lambda x:x[2])
-    V=set([costs[0][0]])
-    #print(costs,V)
+    costs.sort(key=lambda x : x[2])
+    path=set([costs[0][0]])
+    #print(costs,path)
     
-    while len(V) != n :
-        for E in costs:
-            if E[0] in V and E[1] in V :
+    while len(path) < n : 
+        for a,b,cost in costs :
+            if a in path and b in path :
                 continue
-            if E[0] in V or E[1] in V :
-                V.add(E[0])
-                V.add(E[1])
-                answer+=E[2]
-                #print(V)
-                break  
+            if a in path or b in path :
+                path.add(a)
+                path.add(b)
+                answer+=cost
+                break
+                #print(path,answer)
     return answer
