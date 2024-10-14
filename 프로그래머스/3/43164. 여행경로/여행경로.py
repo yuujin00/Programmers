@@ -1,22 +1,25 @@
+# 여행경로
+
 def solution(tickets):
     answer = []
+    dic={}
     
-    visited = [False]*len(tickets)
+    for a,b in tickets :
+        if a not in dic:
+            dic[a]=[b]
+        else :
+            dic[a].append(b)
+        dic[a].sort(reverse=True)
+        
+    stack=["ICN"]
     
-    def dfs(airport, path):
-        if len(path) == len(tickets)+1:
-            answer.append(path)
-            return
+    while stack :
+        tmp=stack[-1]
+        print(tmp,answer)
+        if tmp not in dic or len(dic[tmp]) == 0:
+            answer.append(stack.pop())
+        else :
+            stack.append(dic[tmp].pop())
+        print(stack,answer)
         
-        for idx, ticket in enumerate(tickets):
-            if airport == ticket[0] and visited[idx] == False:
-                visited[idx] = True
-                dfs(ticket[1], path+[ticket[1]])
-                visited[idx] = False
-        
-        
-    dfs("ICN", ["ICN"])
-    
-    answer.sort()
-
-    return answer[0]
+    return answer[::-1]
