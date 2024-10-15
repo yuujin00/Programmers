@@ -1,6 +1,5 @@
-# 짝수와 홀수
-
 def solution(num):
-    answer = "Odd"
-    if(num%2==0) : answer="Even"
+    answer = "Even"
+    if num%2==1 : 
+        answer="Odd"
     return answer
