@@ -1,11 +1,11 @@
 def solution(n):
     answer = 0
-    n3=''
-    while n>0 :
-        n3=str(n%3)+n3
-        n=n//3
+    list=[]
     
-    for i in range(len(n3)) :
-        answer+=(3**i)*int(n3[i])
-        
+    while n>0:
+        list.append(n%3)
+        n//=3
+    
+    for i in range(len(list)):
+        answer+=list[len(list)-i-1]*(3**i)
     return answer
