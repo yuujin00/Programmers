@@ -1,7 +1,9 @@
-# 제일 작은 수 제거하기
-
 def solution(arr):
-    arr.remove(min(arr))
+    answer = []
     
-    if(arr) : return arr
-    else : return [-1]
+    if len(arr)==1 : 
+        answer.append(-1)
+    else :
+        arr.remove(min(arr))
+        return arr
+    return answer
