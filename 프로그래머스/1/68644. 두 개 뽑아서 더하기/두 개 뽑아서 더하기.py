@@ -5,5 +5,4 @@ def solution(numbers):
     
     for number in combinations(numbers,2):
         answer.add(sum(number))
-        
     return sorted(answer)
