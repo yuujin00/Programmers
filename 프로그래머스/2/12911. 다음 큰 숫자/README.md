@@ -1,6 +1,6 @@
 # [level 2] 다음 큰 숫자 - 12911 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12911?language=python3) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12911) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 07월 29일 21:20:31
+2024년 10월 18일 00:19:20
 
 ### 문제 설명
 
