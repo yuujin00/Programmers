@@ -1,9 +1,14 @@
 def solution(s):
-    answer=''
+    answer = ''
     
-    answer+=s[0].upper()
+    s=list(s.split(' '))
     
-    for i in range(1,len(s)):
-        if(answer[i-1]==' ') : answer+=s[i].upper()
-        else : answer+=s[i].lower()
-    return answer
+    for word in s:
+        for i in range(len(word)):
+            if i==0:
+                answer+=word[i].upper()
+            else :
+                answer+=word[i].lower()
+        answer+=' '  
+        
+    return answer[:-1]
