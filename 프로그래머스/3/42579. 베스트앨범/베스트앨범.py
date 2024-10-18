@@ -1,24 +1,30 @@
 def solution(genres, plays):
     answer = []
     
-    play={} #{'classic': 1450, 'pop': 3100}
-    genre={} #{'classic': [[500, 0], [150, 2], [800, 3]], 'pop': [[600, 1], [2500, 4]]}
+    play={}
+    genre={}
     
-    for i in range (len(genres)) :
+    for i in range(len(genres)):
         if genres[i] in play :
             play[genres[i]] += plays[i]
+        else :
+            play[genres[i]]=plays[i]
+        if genres[i] in genre:
             genre[genres[i]].append([plays[i],i])
         else :
-            play[genres[i]] = plays[i]
-            genre[genres[i]] = [[plays[i],i]]
+            genre[genres[i]]=[[plays[i],i]]
+            
+    #print(play,genre)
+     
+    genre_list=sorted(play.items(), key=lambda x : x[1], reverse=True)
     
-    genrelist=sorted(play.items(),key=lambda x : x[1], reverse=True)
-    # ['pop', 'classic']
+    #print(genre_list)
     
-    for (g, p) in genrelist :
-        # 재생횟수 내림차순
-        genre[g] = sorted(genre[g],key=lambda x : x[0], reverse=True)
-        answer+=[j for (i,j) in genre[g][:2]]
-    
+    for g,p in genre_list:
+        genre[g]=sorted(genre[g],key=lambda x : x[0], reverse =True)
+        #print(genre[g])
         
+        for i,j in genre[g][:2]:
+            answer.append(j)
+    
     return answer
