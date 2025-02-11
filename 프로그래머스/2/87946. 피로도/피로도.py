@@ -1,21 +1,17 @@
-# 피로도
-
 from itertools import permutations
 
 def solution(k, dungeons):
-    # 순열
-    permutation_list = list(permutations(dungeons))
-    #print(permutation_list)
-    answer = 0
+    answer = -1
     
-    for p in permutation_list :
-        m = k
-        cnt = 0
-        for dungeon in p :
-            if dungeon[0] <= m :
-                m -= dungeon[1]
-                cnt+=1
-                #print(cnt)
-            else : break
-        answer= max(answer,cnt)
+    for per in permutations(dungeons):
+            c_k=k
+            cnt=0
+            for i,j in per:
+                if i <= c_k :
+                    c_k-=j
+                    cnt+=1
+                else :
+                    break
+            answer=max(answer,cnt)
+        
     return answer
