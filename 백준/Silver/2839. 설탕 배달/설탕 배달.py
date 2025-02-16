@@ -1,22 +1,15 @@
 N = int(input())
 
-answer=0
-num=set()
-num.add(0)
+answer = 0
 
-while len(num):
-    if N in num:
-        print(answer)
+while N>0:
+    if N%5==0:
+        answer+=N//5
         break
-    else :
-        num_tmp=set()
-        for i in num:
-            if i+3 <= N:
-                num_tmp.add(i+3)
-            if i+5 <= N:
-                num_tmp.add(i+5)
-        num=num_tmp
-        answer+=1
+    N-=3
+    answer+=1
+    if N<0:
+        answer=-1
+        break
 
-if len(num)==0:
-    print(-1)
+print(answer)
