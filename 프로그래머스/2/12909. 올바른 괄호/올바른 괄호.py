@@ -2,15 +2,16 @@ def solution(s):
     answer = True
     stack=[]
     
-    for i in s :
+    for i in s:
         if i=='(':
             stack.append(i)
-        else:
-            if stack==[] :
-                answer=False
-            else : 
+        else :
+            if len(stack)==0 :
+                return False
+            else :
                 stack.pop()
-            
-    if stack!=[] : answer=False
-
+    
+    if len(stack)!=0 :
+        answer=False
+        
     return answer
