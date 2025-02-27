@@ -1,6 +1,8 @@
 def solution(arr):
     answer = []
-    for i in arr:
-        if i not in answer[-1:]:
-            answer.append(i)
+    
+    for num in arr :
+        if num not in answer[-1:]:
+            answer.append(num)
     return answer
+
